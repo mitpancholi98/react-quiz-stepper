@@ -1,5 +1,5 @@
 react-quiz-stepper is a react component that gives handy access to quiz data
-combined with stepper. Behind the scenes it uses context api, so it can be accessed
+combined with stepper. Behind the scenes it uses context api, so data can be accessed
 at any level in component tree. Most basic hooks are useQuiz and useStepper.
 
 ## Install
@@ -27,10 +27,12 @@ import React from 'react';
 import { QuizProvider } from 'react-quiz-stepper'
 import 'react-quiz-stepper/dist/index.css
 
+const questions = []
+
 function App () {
   return (
-    <QuizProvider questions={[...]}>
-      {/* rest of your code here */%}
+    <QuizProvider questions={questions}>
+      {/* rest of your code here */}
     </QuizProvider>
   )
 }
