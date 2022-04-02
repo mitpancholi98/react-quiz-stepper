@@ -16,10 +16,13 @@ npm i react-quiz-stepper
 ### Quick Start
 
 Wrap your app inside **QuizProvider**. (It asks for questions array to initialize with.)
+and don't forget to import css file.
 
 ```
 import React from 'react';
 import { QuizProvider } from 'react-quiz-stepper'
+import 'react-quiz-stepper/dist/index.css
+
 function App () {
   return (
     <QuizProvider questions={[...]}>
