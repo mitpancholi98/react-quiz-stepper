@@ -51,11 +51,14 @@ function QuizStepperDemo () {
   return (
     <Stepper>
       {state.questions.map((question) => ...)}
-      {/**
-        *  map through all questions and render
+      {
+        /**
+        * map through all questions and render
         * appropriate input
         * (multi choice or single choice based on question.type)
-      */}
+        * only one question will be active depending on the step value
+        */
+      }
     </Stepper>
   )
 }
@@ -70,14 +73,17 @@ const { state, dispatch, getQuestion, getSavedAnswer, generateReport } =
   useQuiz();
 ```
 
-getSavedAnswer: (questionId: number) => number | number[] | "".
-getQuestion: (questionId: number) => SimplifiedQuestion.
-generateReport: () => ReportState.
+getSavedAnswer: (questionId: number) => number | number[] | ""
+
+getQuestion: (questionId: number) => SimplifiedQuestion
+
+generateReport: () => ReportState
 
 **Following actions can be dispatched**
 
-saveUser: (payload: User).
-saveQuestionAnswer: (payload: UserInput).
+saveUser: (payload: User)
+
+saveQuestionAnswer: (payload: UserInput)
 
 ### What useStepper hook gives you
 
@@ -86,6 +92,7 @@ const { step, handleNext, handleBack, goToStep, isLastStep } = useStepper();
 ```
 
 step gives index of currently active question.
-It is possible to bind **handleBack and handleNext** to on click event, to go to next previous and next question respectively
+
+It is possible to bind **handleBack and handleNext** to on click event, to go to next previous and next question respectively.
 
 goToStep: (index: number)
