@@ -24,19 +24,19 @@ and don't forget to import css file.
 
 ```jsx
 import React from 'react';
-import { QuizProvider } from 'react-quiz-stepper'
-import 'react-quiz-stepper/dist/index.css
+import { QuizProvider } from 'react-quiz-stepper';
+import 'react-quiz-stepper/dist/index.css';
 
-const questions = []
+const questions = [];
 
-function App () {
+function App() {
   return (
     <QuizProvider questions={questions}>
       {/* rest of your code here */}
     </QuizProvider>
-  )
+  );
 }
-export default App
+export default App;
 ```
 
 Now create your Stepper component and put it inside QuizProvider.
@@ -66,7 +66,7 @@ function QuizStepperDemo () {
 export default App
 ```
 
-### What useQuiz hook gives you
+## Using useQuiz
 
 ```js
 const { state, dispatch, getQuestion, getSavedAnswer, generateReport } =
@@ -77,11 +77,11 @@ const { state, dispatch, getQuestion, getSavedAnswer, generateReport } =
 | -------------- | :-------------------------: | :------------------------------------------------------------------------------ |
 | state          |          QuizState          | contains user info, user inputs and questions data.                             |
 | dispatch       | React.Dispatch<QuizActions> | saveUser: (payload: User) => void <br> saveQuestionAnswer: (payload: UserInput) |
-| getSavedAnswer |            func             | (questionId) => number / number[] / ""                                          |
+| getSavedAnswer |            func             | (questionId) => number or number[] or ""                                        |
 | getQuestion    |            func             | (questionId: number) => SimplifiedQuestion                                      |
 | generateReport |            func             | () => ReportState                                                               |
 
-### What useStepper hook gives you
+## Using useStepper
 
 ```js
 const { step, handleNext, handleBack, goToStep, isLastStep } = useStepper();
