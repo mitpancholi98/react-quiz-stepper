@@ -73,23 +73,27 @@ const { state, dispatch, getQuestion, getSavedAnswer, generateReport } =
   useQuiz();
 ```
 
-getSavedAnswer: (questionId: number) => number | number[] | ""
-
-getQuestion: (questionId: number) => SimplifiedQuestion
-
-generateReport: () => ReportState
-
-**Following actions can be dispatched**
-
-saveUser: (payload: User)
-
-saveQuestionAnswer: (payload: UserInput)
+| Name           |            Type             | Description                                                                     |
+| -------------- | :-------------------------: | :------------------------------------------------------------------------------ |
+| state          |          QuizState          | contains user info, user inputs and questions data.                             |
+| dispatch       | React.Dispatch<QuizActions> | saveUser: (payload: User) => void <br> saveQuestionAnswer: (payload: UserInput) |
+| getSavedAnswer |            func             | (questionId) => number / number[] / ""                                          |
+| getQuestion    |            func             | (questionId: number) => SimplifiedQuestion                                      |
+| generateReport |            func             | () => ReportState                                                               |
 
 ### What useStepper hook gives you
 
 ```js
 const { step, handleNext, handleBack, goToStep, isLastStep } = useStepper();
 ```
+
+| Name       |     Type     | Description                                                      |
+| ---------- | :----------: | :--------------------------------------------------------------- |
+| step       |    number    | Index of the active question.                                    |
+| handleNext | VoidFunction | Renders next question on screen.                                 |
+| handleBack | VoidFunction | Renders previous question on screen.                             |
+| goToStep   |     func     | (index: number) => Void <br> goes to specific question provided. |
+| isLastStep |   boolean    | checks if it is a last step.                                     |
 
 step gives index of currently active question.
 
