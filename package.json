@@ -13,6 +13,12 @@
   "files": [
     "dist/"
   ],
+  "homepage": "https://github.com/mitpancholi98/react-quiz-stepper/blob/master/README.md",
+  "keywords": [
+    "react",
+    "quiz",
+    "stepper"
+  ],
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
