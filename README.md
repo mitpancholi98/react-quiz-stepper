@@ -92,11 +92,7 @@ const { step, handleNext, handleBack, goToStep, isLastStep } = useStepper();
 | step       |    number    | Index of the active question.                                    |
 | handleNext | VoidFunction | Renders next question on screen.                                 |
 | handleBack | VoidFunction | Renders previous question on screen.                             |
-| goToStep   |     func     | (index: number) => Void <br> goes to specific question provided. |
+| goToStep   |     func     | (index: number) => void <br> goes to specific question provided. |
 | isLastStep |   boolean    | checks if it is a last step.                                     |
 
-step gives index of currently active question.
-
 It is possible to bind **handleBack and handleNext** to on click event, to go to next previous and next question respectively.
-
-goToStep: (index: number)
