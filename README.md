@@ -13,7 +13,7 @@ npm i react-quiz-stepper
 <li>Report generation</li>
 </ul>
 
-### Quickstart
+### Quick Start
 
 Wrap your app inside **QuizProvider**. (It asks for questions array to initialize with.)
 
@@ -34,17 +34,17 @@ Now create your Stepper component and put it inside QuizProvider.
 
 ```
 import React from 'react';
-import { Stpper, useQuiz } from 'react-quiz-stepper'
+import { Stepper, useQuiz } from 'react-quiz-stepper'
 function QuizStepperDemo () {
 	const { state } = useQuiz()
 
 	return (
-		<Stpper>
+		<Stepper>
 			{state.questions.map((question) => ...)}
 			// map through all questions and render
 			// appropriate input
 			// (multi choiece or single choice based on question.type)
-		</Stpper>
+		</Stepper>
 	)
 }
 export default App
@@ -54,7 +54,7 @@ export default App
 
 ```
 const {
-	state,
+  state,
 	dispatch,
 	getQuestion,
 	getSavedAnswer,
@@ -82,6 +82,7 @@ const {
 } = useQuiz()
 ```
 
-step is currently active question
+step is currently active question.
 handleBack and handleNext can be binded to button on click, to go to next previous and next question respectively
+
 goToStep: (index: number)
