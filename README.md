@@ -86,6 +86,6 @@ const {
 ```
 
 step is currently active question.
-handleBack and handleNext can be binded to button on click, to go to next previous and next question respectively
+It is possible to bind **handleBack and handleNext** to on click event, to go to next previous and next question respectively
 
 goToStep: (index: number)
