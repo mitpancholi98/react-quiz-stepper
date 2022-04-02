@@ -21,11 +21,11 @@ Wrap your app inside **QuizProvider**. (It asks for questions array to initializ
 import React from 'react';
 import { QuizProvider } from 'react-quiz-stepper'
 function App () {
-	return (
-		<QuizProvider questions={[...]}>
-			// rest of your code here
-		</QuizProvider>
-	)
+  return (
+    <QuizProvider questions={[...]}>
+      // rest of your code here
+    </QuizProvider>
+  )
 }
 export default App
 ```
@@ -36,16 +36,16 @@ Now create your Stepper component and put it inside QuizProvider.
 import React from 'react';
 import { Stepper, useQuiz } from 'react-quiz-stepper'
 function QuizStepperDemo () {
-	const { state } = useQuiz()
+  const { state } = useQuiz()
 
-	return (
-		<Stepper>
-			{state.questions.map((question) => ...)}
-			// map through all questions and render
-			// appropriate input
-			// (multi choiece or single choice based on question.type)
-		</Stepper>
-	)
+  return (
+    <Stepper>
+      {state.questions.map((question) => ...)}
+      // map through all questions and render
+      // appropriate input
+      // (multi choiece or single choice based on question.type)
+    </Stepper>
+  )
 }
 export default App
 ```
@@ -55,10 +55,10 @@ export default App
 ```
 const {
   state,
-	dispatch,
-	getQuestion,
-	getSavedAnswer,
-	generateReport
+  dispatch,
+  getQuestion,
+  getSavedAnswer,
+  generateReport
 } = useQuiz()
 ```
 
@@ -74,11 +74,11 @@ saveQuestionAnswer: (payload: UserInput)
 
 ```
 const {
-	step,
-	handleNext,
-	handleBack,
-	goToStep,
-	isLastStep
+  step,
+  handleNext,
+  handleBack,
+  goToStep,
+  isLastStep
 } = useQuiz()
 ```
 
