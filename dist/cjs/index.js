@@ -21,6 +21,7 @@ exports.useStepper = exports.Stepper = exports.useQuiz = exports.QuizProvider = 
 var quiz_1 = require("./context/quiz");
 Object.defineProperty(exports, "QuizProvider", { enumerable: true, get: function () { return __importDefault(quiz_1).default; } });
 Object.defineProperty(exports, "useQuiz", { enumerable: true, get: function () { return quiz_1.useQuiz; } });
+__exportStar(require("./context/actions/quiz"), exports);
 var stepper_1 = require("./context/stepper");
 Object.defineProperty(exports, "Stepper", { enumerable: true, get: function () { return __importDefault(stepper_1).default; } });
 Object.defineProperty(exports, "useStepper", { enumerable: true, get: function () { return stepper_1.useStepper; } });

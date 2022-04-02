@@ -82,7 +82,7 @@ const {
   handleBack,
   goToStep,
   isLastStep
-} = useQuiz()
+} = useStepper()
 ```
 
 step is currently active question.
