@@ -27,8 +27,8 @@
   "scripts": {
     "clean": "rimraf lib",
     "copyfiles": "copyfiles -f ./src/packages/**/*.css dist",
-    "my-build": "rm -rf dist/ && npm run build:esm && npm run build:cjs && npm run copyfiles",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+    "compile": "rm -rf dist/ && npm run build:esm && npm run build:cjs && npm run copyfiles"
   }
 }
