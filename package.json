@@ -1,0 +1,34 @@
+{
+  "name": "react-quiz-stepper",
+  "version": "0.1.0",
+  "private": false,
+  "author": {
+    "name": "Mit Pancholi",
+    "email": "mitpancholi1012@gmail.com"
+  },
+  "license": "MIT",
+  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
+  "types": "dist/esm/index.js",
+  "files": [
+    "dist/"
+  ],
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "copyfiles": "^2.4.1",
+    "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "copyfiles": "copyfiles -f ./src/packages/**/*.css dist",
+    "my-build": "rm -rf dist/ && npm run build:esm && npm run build:cjs && npm run copyfiles",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+  }
+}
