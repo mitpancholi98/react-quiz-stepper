@@ -27,4 +27,3 @@ Object.defineProperty(exports, "Stepper", { enumerable: true, get: function () {
 Object.defineProperty(exports, "useStepper", { enumerable: true, get: function () { return stepper_1.useStepper; } });
 __exportStar(require("./utility/interfaces"), exports);
 __exportStar(require("./utility/enums"), exports);
-__exportStar(require("./utility/constants"), exports);

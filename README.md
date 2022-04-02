@@ -38,6 +38,7 @@ Now create your Stepper component and put it inside QuizProvider.
 ```
 import React from 'react';
 import { Stepper, useQuiz } from 'react-quiz-stepper'
+
 function QuizStepperDemo () {
   const { state } = useQuiz()
 
@@ -50,6 +51,7 @@ function QuizStepperDemo () {
     </Stepper>
   )
 }
+
 export default App
 ```
 
@@ -65,12 +67,13 @@ const {
 } = useQuiz()
 ```
 
-getSavedAnswer: (questionId: number) => number | number[] | ""
-getQuestion: (questionId: number) => SimplifiedQuestion
+getSavedAnswer: (questionId: number) => number | number[] | ""\
+getQuestion: (questionId: number) => SimplifiedQuestion\
 generateReport: () => ReportState
 
 **Following actions can be dispatched**
-saveUser: (payload: User)
+
+saveUser: (payload: User)\
 saveQuestionAnswer: (payload: UserInput)
 
 #### What useStepper hook gives you
@@ -85,7 +88,7 @@ const {
 } = useStepper()
 ```
 
-step is currently active question.
+step gives index of currently active question.\
 It is possible to bind **handleBack and handleNext** to on click event, to go to next previous and next question respectively
 
 goToStep: (index: number)

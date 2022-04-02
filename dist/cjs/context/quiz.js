@@ -87,14 +87,15 @@ var useQuiz = function () {
         throw new Error('useQuiz must be used within a <QuizProvider> component.');
     }
     var getQuestion = function (questionId) {
-        var _a, _b;
+        var _a, _b, _c;
+        var userLanguageId = ((_a = context.state.user) === null || _a === void 0 ? void 0 : _a.languageId) || 1;
         var currentQuestion = context.state.questions.find(function (q) { return q.questionId === questionId; });
         if (!currentQuestion)
             throw new Error('Question Not Found');
-        var title = ((_b = (_a = currentQuestion.questionInfo) === null || _a === void 0 ? void 0 : _a.find(function (qi) { var _a; return qi.languageId === ((_a = context.state.user) === null || _a === void 0 ? void 0 : _a.languageId); })) === null || _b === void 0 ? void 0 : _b.title) || '';
+        var title = ((_c = (_b = currentQuestion.questionInfo) === null || _b === void 0 ? void 0 : _b.find(function (qi) { return qi.languageId === userLanguageId; })) === null || _c === void 0 ? void 0 : _c.title) || '';
         var compressedOptions = currentQuestion.optionsInfo.map(function (oi) {
             var _a;
-            var compressedOptionTitle = (_a = oi.languageInfo.find(function (lang) { var _a; return lang.languageId === ((_a = context.state.user) === null || _a === void 0 ? void 0 : _a.languageId); })) === null || _a === void 0 ? void 0 : _a.title;
+            var compressedOptionTitle = (_a = oi.languageInfo.find(function (lang) { return lang.languageId === userLanguageId; })) === null || _a === void 0 ? void 0 : _a.title;
             return {
                 id: oi.id,
                 title: compressedOptionTitle || '',

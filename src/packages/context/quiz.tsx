@@ -60,17 +60,18 @@ export const useQuiz = () => {
   }
 
   const getQuestion = (questionId: number) => {
+    const userLanguageId = context.state.user?.languageId || 1;
     const currentQuestion = context.state.questions.find(
       (q) => q.questionId === questionId
     );
     if (!currentQuestion) throw new Error('Question Not Found');
     const title =
       currentQuestion.questionInfo?.find(
-        (qi) => qi.languageId === context.state.user?.languageId
+        (qi) => qi.languageId === userLanguageId
       )?.title || '';
     const compressedOptions = currentQuestion.optionsInfo.map((oi) => {
       const compressedOptionTitle = oi.languageInfo.find(
-        (lang) => lang.languageId === context.state.user?.languageId
+        (lang) => lang.languageId === userLanguageId
       )?.title;
       return {
         id: oi.id,
