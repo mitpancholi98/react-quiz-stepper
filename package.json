@@ -1,6 +1,6 @@
 {
   "name": "react-quiz-stepper",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A react component that provides handy access of quiz data combined with a stepper.",
   "private": false,
   "author": {
