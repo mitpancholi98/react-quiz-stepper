@@ -1,6 +1,6 @@
 import { IStepperContext, StepperProps } from '../utility/interfaces';
 import React, { useContext, createContext, useState } from 'react';
-// import { useQuiz } from './quiz';
+import { useQuiz } from './quiz';
 
 export const StepperContext = createContext<IStepperContext | undefined>(
   undefined
@@ -9,7 +9,7 @@ export const StepperContext = createContext<IStepperContext | undefined>(
 const Stepper: React.FC<StepperProps> = ({ children, onFinish }) => {
   const childrenArray = React.Children.toArray(children);
   const [step, setStep] = useState(0);
-  // const { state } = useQuiz();
+  const { state } = useQuiz();
 
   const isLastStep = step === childrenArray.length - 1;
 
@@ -30,11 +30,11 @@ const Stepper: React.FC<StepperProps> = ({ children, onFinish }) => {
     setStep((s) => s - 1);
   };
 
-  // const isCompleted = (questionId: number) => {
-  //   return (
-  //     state.userInputs?.findIndex((ui) => ui.questionId === questionId) > -1
-  //   );
-  // };
+  const isCompleted = (questionId: number) => {
+    return (
+      state.userInputs?.findIndex((ui) => ui.questionId === questionId) > -1
+    );
+  };
 
   return (
     <StepperContext.Provider
@@ -46,7 +46,7 @@ const Stepper: React.FC<StepperProps> = ({ children, onFinish }) => {
         isLastStep,
       }}
     >
-      {/* {state.questions.length > 0 && (
+      {state.questions.length > 0 && (
         <div className='stepper-container'>
           {state.questions.map((q, i) => {
             const isStepDone = isCompleted(q.questionId);
@@ -67,7 +67,7 @@ const Stepper: React.FC<StepperProps> = ({ children, onFinish }) => {
             );
           })}
         </div>
-      )} */}
+      )}
       {currentChild}
     </StepperContext.Provider>
   );

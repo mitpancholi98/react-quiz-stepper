@@ -25,13 +25,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useStepper = exports.StepperContext = void 0;
 var react_1 = __importStar(require("react"));
-// import { useQuiz } from './quiz';
+var quiz_1 = require("./quiz");
 exports.StepperContext = (0, react_1.createContext)(undefined);
 var Stepper = function (_a) {
     var children = _a.children, onFinish = _a.onFinish;
     var childrenArray = react_1.default.Children.toArray(children);
     var _b = (0, react_1.useState)(0), step = _b[0], setStep = _b[1];
-    // const { state } = useQuiz();
+    var state = (0, quiz_1.useQuiz)().state;
     var isLastStep = step === childrenArray.length - 1;
     var currentChild = childrenArray[step];
     var handleNext = function () {
@@ -48,18 +48,23 @@ var Stepper = function (_a) {
     var handleBack = function () {
         setStep(function (s) { return s - 1; });
     };
-    // const isCompleted = (questionId: number) => {
-    //   return (
-    //     state.userInputs?.findIndex((ui) => ui.questionId === questionId) > -1
-    //   );
-    // };
+    var isCompleted = function (questionId) {
+        var _a;
+        return (((_a = state.userInputs) === null || _a === void 0 ? void 0 : _a.findIndex(function (ui) { return ui.questionId === questionId; })) > -1);
+    };
     return (react_1.default.createElement(exports.StepperContext.Provider, { value: {
             step: step,
             handleNext: handleNext,
             goToStep: goToStep,
             handleBack: handleBack,
             isLastStep: isLastStep,
-        } }, currentChild));
+        } },
+        state.questions.length > 0 && (react_1.default.createElement("div", { className: 'stepper-container' }, state.questions.map(function (q, i) {
+            var isStepDone = isCompleted(q.questionId);
+            return (react_1.default.createElement("div", { key: q.questionId, className: "stepper-item ".concat(isStepDone ? 'completed' : '', " ").concat(step === i ? 'active' : '') },
+                react_1.default.createElement("button", { className: 'step-counter', onClick: function () { return i !== step && setStep(i); } }, isStepDone ? '✔' : i + 1)));
+        }))),
+        currentChild));
 };
 var useStepper = function () {
     var context = (0, react_1.useContext)(exports.StepperContext);
