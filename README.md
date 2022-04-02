@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+### Install
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+npm i react-quiz-stepper
+```
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+<ul>
+<li>Ready to use quiz builder with stepper component</li>
+<li>Multi language</li>
+<li>Supports multi choice</li>
+<li>Report generation</li>
+</ul>
 
-### `npm start`
+### Quickstart
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Wrap your app inside **QuizProvider**. (It asks for questions array to initialize with.)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+import React from 'react';
+import { QuizProvider } from 'react-quiz-stepper'
+function App () {
+	return (
+		<QuizProvider questions={[...]}>
+			// rest of your code here
+		</QuizProvider>
+	)
+}
+export default App
+```
 
-### `npm test`
+Now create your Stepper component and put it inside QuizProvider.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+import React from 'react';
+import { Stpper, useQuiz } from 'react-quiz-stepper'
+function QuizStepperDemo () {
+	const { state } = useQuiz()
 
-### `npm run build`
+	return (
+		<Stpper>
+			{state.questions.map((question) => ...)}
+			// map through all questions and render
+			// appropriate input
+			// (multi choiece or single choice based on question.type)
+		</Stpper>
+	)
+}
+export default App
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### What useQuiz hook gives you
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+const {
+	state,
+	dispatch,
+	getQuestion,
+	getSavedAnswer,
+	generateReport
+} = useQuiz()
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+getSavedAnswer: (questionId: number) => number | number[] | ""
+getQuestion: (questionId: number) => SimplifiedQuestion
+generateReport: () => ReportState
 
-### `npm run eject`
+**Following actions can be dispatched**
+saveUser: (payload: User)
+saveQuestionAnswer: (payload: UserInput)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### What useStepper hook gives you
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+const {
+	step,
+	handleNext,
+	handleBack,
+	goToStep,
+	isLastStep
+} = useQuiz()
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+step is currently active question
+handleBack and handleNext can be binded to button on click, to go to next previous and next question respectively
+goToStep: (index: number)
