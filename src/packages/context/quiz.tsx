@@ -40,10 +40,7 @@ const quizReducer = (state: QuizState, action: QuizActions): QuizState => {
 
 const QuizContext = createContext(quizContextState);
 
-const QuizProvider: React.FC<QuizProviderProps & React.ReactNode> = ({
-  children,
-  questions,
-}) => {
+const QuizProvider = ({ children, questions }: QuizProviderProps) => {
   const defaultQuizState: QuizState = {
     questions,
     userInputs: [],

@@ -6,7 +6,7 @@ export const StepperContext = createContext<IStepperContext | undefined>(
   undefined
 );
 
-const Stepper: React.FC<StepperProps> = ({ children, onFinish }) => {
+const Stepper = ({ children, onFinish }: StepperProps) => {
   const childrenArray = React.Children.toArray(children);
   const [step, setStep] = useState(0);
   const { state } = useQuiz();

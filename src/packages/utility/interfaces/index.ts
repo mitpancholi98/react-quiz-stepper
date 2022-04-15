@@ -12,6 +12,7 @@ export interface IStepperContext {
 
 export interface StepperProps {
   onFinish: VoidFunction;
+  children: React.ReactNode;
 }
 
 export interface ValueMap {
@@ -45,6 +46,7 @@ export interface Question {
 
 export interface QuizProviderProps {
   questions: Question[];
+  children: React.ReactNode;
 }
 
 export interface SimplifiedOption {
